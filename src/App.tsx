@@ -19,7 +19,6 @@ function App() {
         volume24h: number;
         priceChange: number;
         side: string;
-        isHighDensity: boolean;
         timesMore: number;
         largeVolume: boolean;
       }
@@ -52,7 +51,6 @@ function App() {
           volume24h: formatNumber(data.volume24h),
           priceChange: data.priceChange,
           side: data.side,
-          isHighDensity: data.isHighDensity,
           timesMore: data.timesMore,
           largeVolume: data.volume24h > 100000000,
         },
@@ -128,7 +126,6 @@ function App() {
                 volume24h,
                 priceChange,
                 side,
-                isHighDensity,
                 timesMore,
                 largeVolume,
               },
