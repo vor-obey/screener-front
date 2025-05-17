@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+
+
 import "./App.css";
 
 function formatNumber(value: number): string {
