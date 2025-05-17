@@ -14,7 +14,6 @@ function App() {
     Record<
       string,
       {
-        percent: number;
         maxDensity: number;
         price: number;
         volume24h: number;
@@ -48,7 +47,6 @@ function App() {
       setMap((prev) => ({
         ...prev,
         [data.symbol]: {
-          percent: data.percent,
           maxDensity: formatNumber(data.maxDensity),
           price: data.price,
           volume24h: formatNumber(data.volume24h),
@@ -67,7 +65,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: any) => {
       if (e.clientY <= 100) {
         setShowNavbar(true);
       } else {
@@ -125,7 +123,6 @@ function App() {
             [
               symbol,
               {
-                percent,
                 maxDensity,
                 price,
                 volume24h,
