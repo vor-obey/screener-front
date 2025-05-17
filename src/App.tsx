@@ -143,6 +143,7 @@ function App() {
               style={{
                 background: timesMore > 4 ? "#bb00fa" : "",
               }}
+              onClick={() => window.open(`https://digash.live/#/app/coins-view/BINANCE_FUTURES/${symbol}`, '_blank')}
             >
               <div className="cell-info-head">
                 <span className="symbol">{symbol}</span>
