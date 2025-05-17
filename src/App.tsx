@@ -38,7 +38,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:3001");
+    // const socket = new WebSocket("ws://localhost:3001");
+    const socket = new WebSocket("wss://screener-back-1.onrender.com");
     socket.onopen = () => setIsConnected(true);
 
     socket.onmessage = (msg) => {
