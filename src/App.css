@@ -1,91 +1,156 @@
 body {
-    margin: 0;
-    padding: 0;
-    /*background: rgba(128, 0, 128, 1);*/
-    background: #545454;
-    /*background: #757575;*/
+  margin: 0;
+  padding: 0;
+  /*background: rgba(128, 0, 128, 1);*/
+  background: #545454;
+  /*background: #757575;*/
+  user-select: none;
+
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.root {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.navbar {
+  position: relative;
+}
+
+.status-active {
+  position: absolute;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #019612;
+  animation: blink 1s infinite;
+}
+
+.status-disconnect {
+  position: absolute;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff1414;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
 
 .cell-container {
-    display: flex;
-    width: 100vw;
-    flex-wrap: wrap;
-    position: relative;
-    border-top: 1px solid #757575;
-    border-right: 1px solid #757575;
-    box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  border-top: 1px solid #757575;
+  border-right: 1px solid #757575;
+  box-sizing: border-box;
 }
 
 .status {
-    position: absolute;
-    transform: translate(-50%);
-    opacity: 0.05;
-    left: 50%;
-    top: 50%;
-    font-size: 22vw;
+  position: absolute;
+  transform: translate(-50%);
+  opacity: 0.05;
+  left: 50%;
+  top: 50%;
+  line-height: 0;
+  font-size: 18vw;
+  z-index: 0;
+
+  user-select: none;
 }
 
 .cell {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    min-width: 200px;
-    max-width: 216px;
-    height: 100px;
-    padding: 5px 10px;
-    border-left: 1px solid #757575;
-    border-bottom: 1px solid #757575;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 200px;
+  max-width: 216px;
+  height: 100px;
+  padding: 5px 10px;
+  border-left: 1px solid #757575;
+  border-bottom: 1px solid #757575;
+  box-sizing: border-box;
 
-    position: relative;
+  position: relative;
+
+  cursor: pointer;
 }
 
 .lastCell {
-    border-right: 1px solid #757575;
+  border-right: 1px solid #757575;
 }
 
 .cell-info-head {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .symbol {
-    color: #FFF;
+  color: #fff;
 }
 
 .cell-info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 5px;
 }
 
 .p-low {
-    color: #ff1414;
+  color: #ff1414;
 }
 
 .p-high {
-    color: #019612;
+  color: #019612;
 }
 
 .large-volume {
-    color: #f1bf1e;
+  color: #f1bf1e;
 }
 
 .hot {
-    color: aqua;
+  color: aqua;
 }
-
 
 .price-change {
-    position: absolute;
-    transform: translate(-50%);
-    opacity: 0.3;
-    left: 50%;
-    top: 50%;
-    font-size: 50px;
-    line-height: 0;
+  position: absolute;
+  transform: translate(-50%);
+  opacity: 0.3;
+  left: 50%;
+  top: 50%;
+  font-size: 50px;
+  line-height: 0;
+  z-index: 1;
+  user-select: none;
 }
-

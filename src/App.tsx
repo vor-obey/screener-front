@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-
-
 import "./App.css";
 
 function formatNumber(value: number): string {
@@ -67,7 +65,7 @@ function App() {
 
   useEffect(() => {
     const handleMouseMove = (e: any) => {
-      if (e.clientY <= 100) {
+      if (e.clientY <= 50) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -86,7 +84,7 @@ function App() {
   const entries = isSorted ? sortedEntries : Object.entries(map);
 
   return (
-    <>
+    <div className="root">
       <div
         className="navbar"
         style={{
@@ -94,7 +92,7 @@ function App() {
           top: 0,
           left: 0,
           right: 0,
-          height: "100px",
+          height: "50px",
           backgroundColor: `rgba(70, 70, 70, ${Math.min(0.9, 1)})`,
           borderBottom: "1px solid #757575",
           boxShadow: "0px 16px 13px -7px rgba(34, 60, 80, 0.5)",
@@ -116,6 +114,7 @@ function App() {
           />
           Alphabet sorting
         </label>
+          <div className={`${isConnected ? 'status-active' : 'status-disconnect'}`}></div>
       </div>
 
       <div className="cell-container">
@@ -143,19 +142,24 @@ function App() {
               style={{
                 background: timesMore > 4 ? "#bb00fa" : "",
               }}
-              onClick={() => window.open(`https://digash.live/#/app/coins-view/BINANCE_FUTURES/${symbol}`, '_blank')}
+              onClick={() =>
+                window.open(
+                  `https://digash.live/#/app/coins-view/BINANCE_FUTURES/${symbol}`,
+                  "_blank",
+                )
+              }
             >
               <div className="cell-info-head">
                 <span className="symbol">{symbol}</span>
-                <span className={timesMore > 2 ? "hot" : ""}>X{timesMore}</span>
+                <span className={timesMore > 2 ? "hot" : ""}>x{timesMore}</span>
               </div>
               <div className="cell-info">
                 <span className={side === "bid" ? "p-low" : "p-high"}>
-                  D: {maxDensity}
+                  DS: {maxDensity}
                 </span>
                 <span>P: {price}</span>
                 <span className={largeVolume ? "large-volume" : ""}>
-                  V: {volume24h}
+                  24V: {volume24h}
                 </span>
 
                 <span
@@ -169,12 +173,8 @@ function App() {
             </div>
           ),
         )}
-
-        <div className="status">
-          {isConnected ? "Connected" : "Disconnected"}
-        </div>
       </div>
-    </>
+    </div>
   );
 }
 
